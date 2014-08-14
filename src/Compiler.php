@@ -28,7 +28,7 @@ class Compiler {
 		}
 		$phar->addFromString("bin/$basename", preg_replace('{^#!/usr/bin/env php\s*}', '', file_get_contents($executable)));
 
-		$phar->setStub("#!/usr/bin/env php\n<?php require'phar://$basename.phar/bin/$basename';__halt_compiler();");
+		$phar->setStub("#!/usr/bin/env php\n<?php require'phar://$basename.phar/bin/$basename';__HALT_COMPILER();");
 
 		$phar->stopBuffering();
 	}
