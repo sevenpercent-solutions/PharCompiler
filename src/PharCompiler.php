@@ -8,7 +8,7 @@ use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
 
-class Compiler {
+class PharCompiler {
 
 	public function compile($executable, array $directories) {
 
