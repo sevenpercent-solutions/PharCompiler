@@ -6,7 +6,6 @@ use FilesystemIterator;
 use Phar;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
-use SplFileInfo;
 
 class PharCompiler {
 
