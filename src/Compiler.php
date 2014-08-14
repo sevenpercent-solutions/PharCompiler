@@ -22,7 +22,7 @@ class Compiler {
 			$pathOffset = strlen(dirname(realpath($directory))) + 1;
 			foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS)) as $file) {
 				if ($file->getExtension() === 'php') {
-					$phar->addFile($file->getRealPath(), substr($fileRealPath, $pathOffset));
+					$phar->addFile($fileRealPath = $file->getRealPath(), substr($fileRealPath, $pathOffset));
 				}
 			}
 		}
