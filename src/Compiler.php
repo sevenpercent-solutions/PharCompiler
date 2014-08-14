@@ -19,13 +19,9 @@ class Compiler {
 		foreach ($directories as $directory) {
 			foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS)) as $file) {
 				if ($file->getExtension() === 'php') {
-					$this->_addFile($phar);
-					$files[] = $file->getRealPath();
+					$this->_addFile($phar, $file);
 				}
 			}
-		}
-		foreach ($finder as $file) {
-			$this->_addFile($phar, $file);
 		}
 		$phar->addFromString("bin/$name", preg_replace('{^#!/usr/bin/env php\s*}', '', file_get_contents(__DIR__ . "/../bin/$name")));
 
